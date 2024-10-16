@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# Python egg and distribution files
+*.egg-info/
+dist/
+build/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Ignore uploads directory
+uploads/
+
+# Ignore specific binaries
+bin/
+
+#custom 
+deploy.py
+describe_tables.py
+create_db.py
