@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9276122865143297"
+     crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert your videos to various formats easily with our video converter tool.">
+    <meta name="keywords" content="video conversion, file converter, MP4, AVI, MOV, MKV, FLV">
+    <title>Video Conversion</title>
+    <link rel="icon" href="static/logo/logo2/favicon.ico" type="image/x-icon">
+                    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/static/icons/orange.jpg'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Keeps the image fixed when scrolling */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #fbc02d; /* Yellow text for section headings */
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+
+        input[type="file"]:hover {
+            border-color: #fbc02d; /* Yellow hover border for file input */
+        }
+
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s;
+        }
+
+        select:hover {
+            border-color: #fbc02d; /* Yellow hover border for select */
+        }
+
+        button {
+            background-color: #fbc02d; /* Yellow button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f57f17; /* Darker yellow on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .back-home-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .back-home-btn:hover {
+            background-color: #5a6268;
+        }
+
+        .ad-container {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border: 1px dashed #fbc02d; /* Yellow dashed border */
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .ad-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Guide section styles */
+        .guide-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #fffde7; /* Light yellow background for guide */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-section h3 {
+            color: #fbc02d;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .step img {
+            width: 100px;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .step-text {
+            flex: 1;
+            padding-left: 1rem;
+        }
+
+        /* Spinner styles */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #fbc02d;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            display: none; /* Initially hidden */
+            margin: 20px auto 0; /* Center the spinner with margin */
+            position: relative;
+            top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Styling the form */
+        .form-container {
+            position: relative;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            main {
+                margin: 1rem;
+            }
+
+            button, .back-home-btn {
+                font-size: 0.9rem;
+            }
+
+            input[type="file"], button, .back-home-btn {
+                padding: 0.5rem;
+            }
+
+            .step img {
+                width: 80px;
+            }
+        }
+
+        /* Hide the error message by default */
+        #file-size-error {
+            display: none;
+            color: red;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Show the error message when the file is too large */
+        #file-size-error.show {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+                    <header class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
+            <!-- Logo and Tagline -->
+            <div class="flex items-center">
+                <img src="{{ url_for('static', filename='logo/freefilesconverter1.png') }}" alt="Logo"
+                    class="logo h-10 mr-3">
+                <div>
+                    <h1 class="text-2xl font-bold">Free Files Converter</h1>
+                    <!-- Uncomment if you want the tagline -->
+                    <!-- <p class="text-sm">Your privacy is important to us. We do not store or share your files.</p> -->
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="w-full md:w-auto">
+                <div class="flex items-center justify-between">
+                    <div class="hidden md:flex space-x-4">
+                        <a href="/" class="bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AboutUs</a>
+                        <a href="#tutorials"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tutorials</a>
+                        <a href="/contact"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ContactUs</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button type="button" class="text-gray-200 hover:text-white focus:outline-none"
+                            aria-label="Open main menu">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <h1>Video Converter</h1>
+    </header>
+    <main>
+        <h2>Convert Your Video</h2>
+
+        <!-- Notification for file size limit -->
+        <div id="file-size-error" class="notification">
+            File exceeds the maximum allowed size of 300MB. Please upload a smaller file.
+        </div>
+
+        <form id="conversion-form" action="{{ url_for('video_convert') }}" method="post" enctype="multipart/form-data" onsubmit="return validateFileSize()">
+            <div class="form-group">
+                <label for="file">Upload Video (MP4, AVI, MOV, MKV, FLV):</label>
+                <input type="file" id="file" name="file" accept="video/*" required>
+                <small style="color: #333; font-size: 0.9rem; margin-top: 0.5rem; display: block;">Maximum file size: 300MB</small>
+            </div>            
+            <div class="form-group">
+                <label for="format">Convert to:</label>
+                <select id="format" name="format" required>
+                    <optgroup label="Videos">
+                        <option value="mp4">MP4</option>
+                        <option value="avi">AVI</option>
+                        <option value="mov">MOV</option>
+                        <option value="mkv">MKV</option>
+                        <option value="flv">FLV</option>
+                    </optgroup>
+                </select>
+            </div>
+            <button type="submit">Convert</button>
+            <div class="loader" id="loader"></div>
+        </form>
+
+        <!-- Guide Section -->
+        <div class="guide-section" id="guide-section">
+            <h3>How to Use the Video Converter</h3>
+            <div class="step">
+                <img src="static/images/choose_vid_file.png" alt="Step 1 Image">
+                <div class="step-text">
+                    <h4>Step 1: Upload Your Video</h4>
+                    <p>Select the video file you wish to convert by clicking the "Choose file" button above. Supported file formats include MP4, AVI, MOV, MKV, and FLV.</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="static/images/choose_vid_format.png" alt="Step 2 Image">
+                <div class="step-text">
+                    <h4>Step 2: Choose a Format</h4>
+                    <p>After selecting your video, choose the format you want to convert it to (MP4, AVI, MOV, MKV, FLV).</p>
+                </div>
+            </div>
+            <div class="step">
+                <img src="static/images/convert_vid.png" alt="Step 3 Image">
+                <div class="step-text">
+                    <h4>Step 3: Convert and Download</h4>
+                    <p>Once you've selected the format, click "Convert". Your video will be processed, converted to that format and then automatically download to your device.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="back-home-btn">Back to Home</a>
+    </main>
+
+                    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <img src="{{ url_for('static', filename='logo/freefilesconverter1.png') }}"
+                        alt="Free Files Converter" class="w-48 h-50 object-contain cursor-pointer mb-4"
+                        onclick="window.scrollTo(0, 0)" />
+                    <p class="text-sm text-gray-400 mb-4">
+                        Empowering users with seamless file conversion solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">AboutUs</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help
+                                Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy
+                                Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest features and releases.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
+                            required>
+                        <button type="submit"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                        &copy; 2024 Free Files Converter. All rights reserved.
+                    </p>
+                    <nav class="flex space-x-4">
+                        <a href="#"
+                            class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Privacy
+                            Policy</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Terms
+                            & Conditions</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Cookie
+                            Policy</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Check file size before submitting form
+        function validateFileSize() {
+            var fileInput = document.getElementById("file");
+            var fileSize = fileInput.files[0].size / (1024 * 1024); // Convert to MB
+            var fileSizeError = document.getElementById("file-size-error");
+            if (fileSize > 300) {
+                fileSizeError.classList.add("show");
+                return false; // Prevent form submission
+            } else {
+                fileSizeError.classList.remove("show");
+                return true; // Allow form submission
+            }
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            const uploadForm = document.getElementById('conversion-form');  // Match the form's ID
+            const loader = document.getElementById('loader');  // The loader element
+            
+            uploadForm.addEventListener('submit', function(event) {
+                event.preventDefault();  // Prevent default form submission
+    
+                // First, validate the file size before proceeding
+                if (!validateFileSize()) {
+                    return;  // If file size is invalid, stop submission
+                }
+    
+                loader.style.display = 'block';  // Show the loader
+        
+                const formData = new FormData(uploadForm);
+                const fileInput = document.getElementById('file');  // Get the file input element
+                const fileName = fileInput.files[0].name.split('.')[0];  // Get the base file name (without extension)
+                const targetFormat = document.getElementById('format').value;  // Get the target format from the form
+        
+                // Send the form data using AJAX
+                fetch(uploadForm.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob();  // Return the response as a Blob
+                })
+                .then(data => {
+                    loader.style.display = 'none';  // Hide the loader once the file is converted
+        
+                    // Create a Blob from the response data
+                    const blob = new Blob([data]);
+        
+                    // Create a dynamic download link
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+        
+                    // Use the original file name and append the target format
+                    const downloadFileName = `${fileName}.${targetFormat}`;
+                    link.download = downloadFileName;
+        
+                    // Append the link to the document, trigger click to download, then remove the link
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+        
+                    // Clean up the object URL
+                    URL.revokeObjectURL(link.href);
+                })
+                .catch(error => {
+                    loader.style.display = 'none';  // Hide the loader on error
+                    alert('There was an error processing the file');
+                    console.error('Error:', error);  // Log the error for debugging
+                });
+            });
+        });
+    </script
+    
+</body>
+</html>

@@ -1,0 +1,169 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Login Form Styles */
+.login-container {
+    max-width: 400px;
+    margin: 60px auto; /* Center the form */
+    padding: 30px; /* Comfort padding */
+    background-color: #fff;
+    border-radius: 12px; /* Modern look */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+    margin-bottom: 1.5rem; /* Adjusted spacing */
+    font-size: 1.75rem; /* Larger font size */
+    color: #007bff;
+    text-align: center;
+}
+
+.login-container .form-group {
+    margin-bottom: 1.5rem; /* Spacing between elements */
+}
+
+.login-container label {
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 600; /* Emphasized labels */
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 0.75rem; /* Comfort padding */
+    border: 1px solid #ced4da;
+    border-radius: 6px; /* Larger radius */
+    transition: border-color 0.3s; /* Focus transition */
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #007bff; /* Highlight border */
+    outline: none; /* Remove outline */
+}
+
+.login-container button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem; /* Larger font size */
+    border-radius: 6px; /* Larger radius */
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s; /* Hover transition */
+}
+
+.login-container button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Dashboard Styles */
+.dashboard {
+    max-width: 1200px;
+    margin: 30px auto; /* Centering the dashboard */
+    padding: 30px; /* Comfort padding */
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #007bff;
+    text-align: center;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 1rem; /* Comfort padding for cells */
+    text-align: left;
+    transition: background-color 0.3s; /* Hover transition */
+}
+
+.table th {
+    background-color: #007bff; /* Header color */
+    color: white;
+    font-weight: 600; /* Bolder headers */
+}
+
+.table tr:nth-child(even) {
+    background-color: #f8f9fa; /* Even row color */
+}
+
+.table tr:hover {
+    background-color: #e9ecef; /* Highlight row on hover */
+}
+
+/* Flash Messages */
+.flash-message {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 6px; /* Rounded corners */
+    text-align: center;
+    font-weight: 500; /* Bolder text */
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash-message.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Statistics Container */
+.statistics-container {
+    background-color: #f9f9f9;
+    padding: 30px; /* Comfort padding */
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Spacing below */
+}
+
+.statistics-container h2 {
+    margin-bottom: 15px; /* Adjusted margin */
+    color: #007bff;
+    text-align: center; /* Center for uniformity */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-container, .dashboard {
+        padding: 20px; /* Reduced padding for mobile */
+    }
+
+    .login-container h2, .dashboard h2 {
+        font-size: 1.5rem; /* Adjusted font size */
+    }
+
+    .login-container button {
+        font-size: 1rem; /* Adjusted button font size */
+    }
+}

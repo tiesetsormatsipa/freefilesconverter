@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Conversion Statistics</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .statistics-card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            background-color: #fff;
+        }
+        .statistics-card h5 {
+            font-weight: bold;
+        }
+        .table thead {
+            background-color: #007bff;
+            color: white;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center">Document Conversion Statistics</h1>
+
+        <!-- Conversion Statistics Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Total Conversion Attempts</h5>
+                    <p>{{ total_attempts }}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Total Successful Conversions</h5>
+                    <p>{{ total_successful }}</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Total Failed Conversions</h5>
+                    <p>{{ total_failed }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Most/Least Frequent and Never Used Conversion -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Most Frequent Conversion</h5>
+                    <p>{{ most_frequent_conversion.conversion_type }} ({{ most_frequent_conversion.count }} times)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Least Frequent Conversion</h5>
+                    <p>{{ least_frequent_conversion.conversion_type }} ({{ least_frequent_conversion.count }} times)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Conversion Type Never Used</h5>
+                    <ul>
+                        {% for conversion in never_used_conversion %}
+                        <li>{{ conversion.conversion_type }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics Row -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Fastest Conversion</h5>
+                    <p>{{ fastest_conversion.conversion_type }} ({{ fastest_conversion.min_conversion_time }} seconds)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Slowest Conversion</h5>
+                    <p>{{ slowest_conversion.conversion_type }} ({{ slowest_conversion.max_conversion_time }} seconds)</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="statistics-card">
+                    <h5>Conversions Per Minute</h5>
+                    <p>{{ conversions_per_minute }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- More performance metrics row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="statistics-card">
+                    <h5>Conversions Per Hour</h5>
+                    <p>{{ conversions_per_hour }}</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="statistics-card">
+                    <h5>Conversions Per Day</h5>
+                    <p>{{ conversions_per_day }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Conversion Table -->
+        <h2 class="mt-5">Document Conversion Data</h2>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Original Format</th>
+                    <th>Converted Format</th>
+                    <th>Conversion Status</th>
+                    <th>Conversion Time (seconds)</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in document_data %}
+                <tr>
+                    <td>{{ document.file_name }}</td>
+                    <td>{{ document.original_format }}</td>
+                    <td>{{ document.converted_format }}</td>
+                    <td>{{ document.conversion_status }}</td>
+                    <td>{{ document.conversion_time }}</td>
+                    <td>{{ document.conversion_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

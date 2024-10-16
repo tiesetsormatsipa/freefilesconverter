@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9276122865143297"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Free Files Converter - Convert documents, images, audio, and video files effortlessly. Fast, secure, and privacy-focused file converter.">
+    <meta name="keywords"
+        content="file converter, PDF to DOCX, image converter, audio converter, video converter, online converter">
+    <meta name="author" content="Free Files Converter">
+    <link rel="canonical" href="https://www.freefilesconverter.com">
+
+    <!-- Open Graph Meta Tags for Better Visibility on Social Media -->
+    <meta property="og:title" content="Free Files Converter">
+    <meta property="og:description"
+        content="Fast, secure, and easy-to-use file converter for all your needs. Convert documents, images, audio, and video files effortlessly.">
+    <meta property="og:image" content="https://www.freefilesconverter.com/static/logo/logo2/favicon.ico">
+    <meta property="og:url" content="https://www.freefilesconverter.com">
+    <meta property="og:type" content="website">
+
+    <!-- Title -->
+    <title>Free Files Converter - Convert Documents, Images, Audio, and Video</title>
+
+    <link rel="icon" href="static/logo/logo2/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Schema.org JSON-LD for SEO -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Free Files Converter",
+            "url": "https://www.freefilesconverter.com",
+            "description": "Free online tool to convert files securely and effortlessly. Convert documents, images, audio, and video with ease.",
+            "sameAs": [],
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.freefilesconverter.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Full-page background image */
+        body {
+            background-image: url('/static/icons/background.jpg');
+            /* Replace with your actual image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* Ensures the background stays fixed when scrolling */
+            height: 100vh;
+            /* Ensures it covers the full viewport height */
+        }
+
+        /* Specific File Conversions Section */
+        section {
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+            /* Max width for the content */
+        }
+
+        section h2 {
+            font-size: 2rem;
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="bg-gray-900 text-white py-4">
+        <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
+            <!-- Logo and Tagline -->
+            <div class="flex items-center">
+                <img src="{{ url_for('static', filename='logo/freefilesconverter1.png') }}" alt="Logo"
+                    class="logo h-10 mr-3">
+                <div>
+                    <h1 class="text-2xl font-bold">Free Files Converter</h1>
+                    <!-- Uncomment if you want the tagline -->
+                    <!-- <p class="text-sm">Your privacy is important to us. We do not store or share your files.</p> -->
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="w-full md:w-auto">
+                <div class="flex items-center justify-between">
+                    <div class="hidden md:flex space-x-4">
+                        <a href="/" class="bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AboutUs</a>
+                        <a href="#tutorials"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tutorials</a>
+                        <a href="/contact"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ContactUs</a>
+                    </div>
+                    <div class="md:hidden">
+                        <button type="button" class="text-gray-200 hover:text-white focus:outline-none"
+                            aria-label="Open main menu">
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+        <main class="mt-5 mx-auto bg-gray-800">
+    <!-- Hero Image Section -->
+    <div class="relative bg-cover bg-center h-[250px] flex items-center justify-center p-5"
+        style="background-image: url('{{ url_for('static', filename='icons/colourful1.avif') }}');">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 text-center text-white">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl">Convert Your Files Effortlessly</h1>
+            <p class="text-xl md:text-2xl mt-2">Fast, secure, and easy-to-use file converter for all your needs.</p>
+        </div>
+    </div>
+
+    <!-- Highlight PDF to DOCX Conversion -->
+    <section class="bg-yellow-300 text-center py-6">
+        <h2 class="text-gray-800 text-3xl font-bold mb-3">
+            <strong>Exclusive Feature:</strong> Convert PDF to DOCX Instantly!
+        </h2>
+        <p class="text-gray-800 text-lg leading-relaxed">
+            Experience seamless conversion from PDF to DOCX with just a few clicks. Perfect for editing your documents with ease.
+        </p>
+        <a href="/document_convert"
+            class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300">
+            <i class="fas fa-file-word mr-2"></i> Convert PDF to DOCX Now
+        </a>
+    </section>
+
+            <!-- Feedback Button -->
+<div class="text-center mt-8">
+    <a href="{{ url_for('feedback') }}" class="inline-block bg-blue-500 text-white text-lg font-semibold py-3 px-6 rounded-md transition duration-300 hover:bg-blue-600">
+        <i class="fas fa-comments mr-2"></i> Give Feedback
+    </a>
+</div>
+
+<!-- Conversion Options Section -->
+<div id="conversion-section" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+    <!-- Document Conversion -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/document_convert">
+            <i class="fas fa-file-alt text-blue-600 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Document Conversion</h5>
+        <a href="/document_convert" class="bg-blue-600 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-blue-700 inline-block">
+            <i class="fas fa-file-alt mr-2"></i> Convert Documents
+        </a>
+    </div>
+
+    <!-- Image Conversion -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/image_convert">
+            <i class="fas fa-image text-green-600 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Image Conversion</h5>
+        <a href="/image_convert" class="bg-green-600 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-green-700 inline-block">
+            <i class="fas fa-image mr-2"></i> Convert Images
+        </a>
+    </div>
+
+    <!-- Audio Conversion -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/audio_convert">
+            <i class="fas fa-music text-red-600 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Audio Conversion</h5>
+        <a href="/audio_convert" class="bg-red-600 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-red-700 inline-block">
+            <i class="fas fa-music mr-2"></i> Convert Audio
+        </a>
+    </div>
+
+    <!-- Video Conversion -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/video_convert">
+            <i class="fas fa-video text-yellow-500 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Video Conversion</h5>
+        <a href="/video_convert" class="bg-yellow-500 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-yellow-600 inline-block">
+            <i class="fas fa-video mr-2"></i> Convert Videos
+        </a>
+    </div>
+
+    <!-- Video to Audio Conversion -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/video_to_audio">
+            <i class="fas fa-video text-indigo-600 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Video to Audio</h5>
+        <a href="/video_to_audio" class="bg-indigo-600 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-indigo-700 inline-block">
+            <i class="fas fa-video mr-2"></i> Video to Audio
+        </a>
+    </div>
+
+    <!-- Remove Audio -->
+    <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <a href="/remove_audio">
+            <i class="fas fa-volume-mute text-purple-600 text-4xl mb-4"></i>
+        </a>
+        <h5 class="text-lg font-bold mb-4">Remove Audio</h5>
+        <a href="/remove_audio" class="bg-purple-600 text-white py-2 px-4 rounded-lg transition duration-300 hover:bg-purple-700 inline-block">
+            <i class="fas fa-volume-mute mr-2"></i> Remove Audio
+        </a>
+    </div>
+</div>
+</main>
+
+
+    <!-- Main Section: About Us -->
+    <section id="about" class="py-5 ">
+        <div class="container">
+            <h1 class="text-center text-primary mb-4">About Us</h1>
+            <p class="text-center text-white text-3xl mb-4">Welcome to Free Files Converter, your ultimate tool for
+                online file
+                conversions.</p>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-white text-2xl">
+                    <p class="mb-3">At Free Files Converter, we are committed to providing a fast, reliable, and free
+                        service to convert your files. Whether you're working with documents, audio, video, images, or
+                        archives, we’ve got you covered.</p>
+                    <p class="mb-3 ">Our platform is designed with simplicity in mind—no software installation required.
+                        Just upload your files, select the output format, and let our powerful system take care of the
+                        rest.</p>
+                    <p class="mb-3 ">We prioritize your security, ensuring that all uploaded files are kept private and
+                        protected with the highest level of encryption. <a href="{{ url_for('about_us') }}"
+                            class="text-red-600" ">read more</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id=" tutorials" class="py-5">
+                            <div class="container">
+                                <h2 class="text-center text-primary mb-4">Tutorials</h2>
+                                <p class="text-center text-white mb-5">Need help with converting your files? Check out
+                                    our step-by-step
+                                    tutorials below
+                                    to guide you through the process.</p>
+                                <div class="row">
+                                    <!-- Tutorial Card 1: Document Conversion -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Convert Documents</h5>
+                                                <p class="card-text">Learn how to convert your documents into various
+                                                    formats such as PDF,
+                                                    DOCX, or TXT. This tutorial will guide you through the process.</p>
+                                                <a href="/document_convert#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tutorial Card 2: Audio Conversion -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Convert Audio Files</h5>
+                                                <p class="card-text">Convert audio files to different formats like MP3,
+                                                    WAV, and more.
+                                                    Follow this simple guide to get started.</p>
+                                                <a href="/audio_convert#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tutorial Card 3: Video Conversion -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Convert Video Files</h5>
+                                                <p class="card-text">Learn how to convert videos to MP4, AVI, MOV, and
+                                                    other formats with
+                                                    ease. This tutorial will walk you through the steps.</p>
+                                                <a href="/video_convert#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tutorial Card 4: Image Conversion -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Convert Image Files</h5>
+                                                <p class="card-text">Convert your image files into different formats
+                                                    like JPG, PNG, BMP, and
+                                                    more with this easy-to-follow tutorial.</p>
+                                                <a href="/image_convert#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tutorial Card 5: Video to Audio -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Convert Video to Audio</h5>
+                                                <p class="card-text">Learn how to extract audio from video files and
+                                                    convert them to formats
+                                                    such as MP3 or WAV with this guide.</p>
+                                                <a href="/video_to_audio#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Tutorial Card 6: Remove Audio from Video -->
+                                    <div class="col-lg-4 col-md-6 mb-4">
+                                        <div class="card border-light shadow-sm h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">How to Remove Audio from Video</h5>
+                                                <p class="card-text">This tutorial shows you how to remove the audio
+                                                    track from your video
+                                                    files, leaving just the video content.</p>
+                                                <a href="/remove_audio#guide-section"
+                                                    class="btn btn-primary btn-block">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    </section>
+
+    <section>
+        <h2>Specific File Conversions</h2>
+
+        <div class="flex flex-wrap justify-between gap-8">
+            <!-- Document Conversions -->
+            <div class="flex-1 min-w-[200px] max-w-[250px]">
+                <h3 class="text-2xl mb-4 text-white">Document Conversions</h3>
+                <ul class="list-none pl-0">
+                    <li class="mb-2"><a href="/document_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">DOCX
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/document_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">TXT
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/document_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">CSV
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/document_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">XLSX
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/document_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">PDF
+                            Converter</a></li>
+                </ul>
+            </div>
+
+            <!-- Audio Conversions -->
+            <div class="flex-1 min-w-[200px] max-w-[250px]">
+                <h3 class="text-2xl mb-4 text-white">Audio Conversions</h3>
+                <ul class="list-none pl-0">
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">MP3
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">WAV
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">AAC
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">FLAC
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">OGG
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/audio_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">M4A
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/video_to_audio"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">VID to
+                            AUDIO</a></li>
+                </ul>
+            </div>
+
+            <!-- Video Conversions -->
+            <div class="flex-1 min-w-[200px] max-w-[250px]">
+                <h3 class="text-2xl mb-4 text-white">Video Conversions</h3>
+                <ul class="list-none pl-0">
+                    <li class="mb-2"><a href="/video_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">MP4
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/video_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">MOV
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/video_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">AVI
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/video_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">MKV
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/video_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">FLV
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/remove_audio"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">Mute
+                            Video</a></li>
+                </ul>
+            </div>
+
+            <!-- Image Conversions -->
+            <div class="flex-1 min-w-[200px] max-w-[250px]">
+                <h3 class="text-2xl mb-4 text-white">Image Conversions</h3>
+                <ul class="list-none pl-0">
+                    <li class="mb-2"><a href="/image_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">JPEG
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/image_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">PNG
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/image_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">GIF
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/image_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">SVG
+                            Converter</a></li>
+                    <li class="mb-2"><a href="/image_convert"
+                            class="text-blue-500 text-lg hover:text-blue-700 transition-colors duration-300">BMP
+                            Converter</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2 lg:col-span-1">
+                    <img src="{{ url_for('static', filename='logo/freefilesconverter1.png') }}"
+                        alt="Free Files Converter" class="w-48 h-50 object-contain cursor-pointer mb-4"
+                        onclick="window.scrollTo(0, 0)" />
+                    <p class="text-sm text-gray-400 mb-4">
+                        Empowering users with seamless file conversion solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                            class="text-gray-400 hover:text-blue-500 transition-colors duration-300">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">AboutUs</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Services</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help
+                                Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy
+                                Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms &
+                                Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest features and releases.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
+                            required>
+                        <button type="submit"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0">
+                        &copy; 2024 Free Files Converter. All rights reserved.
+                    </p>
+                    <nav class="flex space-x-4">
+                        <a href="#"
+                            class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Privacy
+                            Policy</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Terms
+                            & Conditions</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Cookie
+                            Policy</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

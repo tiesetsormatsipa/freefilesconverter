@@ -1,0 +1,26 @@
+<!-- templates/convert.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert File</title>
+</head>
+<body>
+    <h1>Convert File</h1>
+    <form action="{{ url_for('convert') }}" method="post" enctype="multipart/form-data">
+        <label for="file">File:</label>
+        <input type="file" name="file" id="file">
+        <label for="format">Format:</label>
+        <select name="format" id="format">
+            <!-- Add options for formats -->
+        </select>
+        <label for="file_type">File Type:</label>
+        <select name="file_type" id="file_type">
+            <option value="document">Document</option>
+            <!-- Add other options as needed -->
+        </select>
+        <button type="submit">Convert</button>
+    </form>
+</body>
+</html>

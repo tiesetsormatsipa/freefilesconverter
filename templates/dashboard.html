@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Conversion Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        .dropdown-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-container select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .stats p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .stats p strong {
+            color: #343a40;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .feedback-contacts {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .feedback, .contacts {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>File Conversion Dashboard</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Select Time Period</h2>
+            <div class="dropdown-container">
+                <label for="time-period">Choose a period:</label>
+                <select id="time-period" onchange="updateCards()">
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+        </section>
+
+        <section>
+            <div class="card-container">
+                <!-- Card 1 - Documents -->
+                <a href="{{ url_for('documents') }}" class="card">
+                    <div class="stats" id="card-1">
+                        <h3>Documents</h3>
+                        <p>Successful Conversions: <strong id="doc-success">{{ doc_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="doc-fail">{{ doc_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="doc_most_converted">{{ doc_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="doc-slowest">{{ doc_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="doc-fastest">{{ doc_fastest }}</strong></p>
+                    </div>
+                </a>
+                <!-- Card 2 - Images -->
+                <a href="{{ url_for('image') }}" class="card">
+                    <div class="stats" id="card-2">
+                        <h3>Images</h3>
+                        <p>Successful Conversions: <strong id="img-success">{{ img_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="img-fail">{{ img_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="img_most_converted">{{ img_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="img-slowest">{{ img_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="img-fastest">{{ img_fastest }}</strong></p>
+                    </div>
+                </a>
+                <!-- Card 3 - Audio -->
+                <a href="{{ url_for('audio') }}" class="card">
+                    <div class="stats" id="card-3">
+                        <h3>Audio</h3>
+                        <p>Successful Conversions: <strong id="audio-success">{{ audio_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="audio-fail">{{ audio_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="audio_most_converted">{{ audio_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="audio-slowest">{{ audio_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="audio-fastest">{{ audio_fastest }}</strong></p>
+                    </div>
+                </a>
+                <!-- Card 4 - Video -->
+                <a href="{{ url_for('video') }}" class="card">
+                    <div class="stats" id="card-4">
+                        <h3>Video</h3>
+                        <p>Successful Conversions: <strong id="video-success">{{ video_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="video-fail">{{ video_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="video_most_converted">{{ video_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="video-slowest">{{ video_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="video-fastest">{{ video_fastest }}</strong></p>
+                    </div>
+                </a>
+                <!-- Card 5 - Video to Audio -->
+                <a href="{{ url_for('vid_to_audio') }}" class="card">
+                    <div class="stats" id="card-5">
+                        <h3>Video to Audio</h3>
+                        <p>Successful Conversions: <strong id="vid-audio-success">{{ vid_audio_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="vid-audio-fail">{{ vid_audio_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="vid-audio_most_converted">{{ vid_audio_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="vid-audio-slowest">{{ vid_audio_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="vid_audio_fastest">{{ vid_audio_fastest }}</strong></p>
+                    </div>
+                </a>
+                <!-- Card 6 - Mute Video -->
+                <a href="{{ url_for('mute_video') }}" class="card">
+                    <div class="stats" id="card-6">
+                        <h3>Mute Video</h3>
+                        <p>Successful Conversions: <strong id="mute-video-success">{{ mute_video_success }}</strong></p>
+                        <p>Failed Conversions: <strong id="mute-video-fail">{{ mute_video_fail }}</strong></p>
+                        <p>Most Converted Type: <strong id="mute-video_most_converted">{{ mute_video_most_converted }}</strong></p>
+                        <p>Slowest Time Conversion: <strong id="mute-video-slowest">{{ mute_video_slowest }}</strong></p>
+                        <p>Fastest Time Conversion: <strong id="mute_video_fastest">{{ mute_video_fastest }}</strong></p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="bar-graph">
+            <h2>Conversion Type Comparisons</h2>
+            <p>Bar graph goes here</p>
+            <!-- You can include a canvas element or library here for the bar graph -->
+        </section>
+
+        <section class="feedback-contacts">
+            <div class="feedback">
+                <h2>Recent Feedbacks</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feedback</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for feedback in feedbacks %}
+                        <tr>
+                            <td>{{ feedback.text }}</td>
+                            <td>{{ feedback.date }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="contacts">
+                <h2>Recent Contact Requests</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for contact in contacts %}
+                        <tr>
+                            <td>{{ contact.name }}</td>
+                            <td>{{ contact.email }}</td>
+                            <td>{{ contact.date }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function updateCards() {
+    const period = document.getElementById("time-period").value;
+
+    // Fetch updated data based on the selected time period
+    fetch(`dashboard?period=${period}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Loop through the received data and update the respective card contents
+            data.forEach(item => {
+                const fileType = item.fileType;
+                document.getElementById(`${fileType}-success`).innerText = item.successful || 0;
+                document.getElementById(`${fileType}-fail`).innerText = item.failed || 0;
+                document.getElementById(`${fileType}-fastest`).innerText = item.fastestTime || 'N/A';
+                document.getElementById(`${fileType}-slowest`).innerText = item.slowestTime || 'N/A';
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+}
+
+// Attach event listener to the dropdown
+document.getElementById("time-period").addEventListener("change", updateCards);
+
+    </script>
+    
+</body>
+</html>
