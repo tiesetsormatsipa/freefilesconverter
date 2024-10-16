@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9276122865143297"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Convert your images to various formats easily with our image converter tool.">
     <meta name="keywords" content="image conversion, file converter, JPG, PNG, GIF, BMP, SVG">
     <title>Image Conversion</title>
     <link rel="icon" href="static/logo/logo2/favicon.ico" type="image/x-icon">
-            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('/static/icons/green.jpg'); /* Replace with your image path */
-            background-size: cover; /* Ensures the image covers the entire background */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents the image from repeating */
-            background-attachment: fixed; /* Keeps the image fixed when scrolling */
+            background-image: url('/static/icons/green.jpg');
+            /* Replace with your image path */
+            background-size: cover;
+            /* Ensures the image covers the entire background */
+            background-position: center;
+            /* Centers the image */
+            background-repeat: no-repeat;
+            /* Prevents the image from repeating */
+            background-attachment: fixed;
+            /* Keeps the image fixed when scrolling */
             margin: 0;
             padding: 0;
         }
@@ -47,7 +53,8 @@
         }
 
         h2 {
-            color: #28a745; /* Green text for section headings */
+            color: #28a745;
+            /* Green text for section headings */
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             text-align: center;
@@ -75,7 +82,8 @@
         }
 
         input[type="file"]:hover {
-            border-color: #28a745; /* Green hover border for file input */
+            border-color: #28a745;
+            /* Green hover border for file input */
         }
 
         select {
@@ -88,11 +96,13 @@
         }
 
         select:hover {
-            border-color: #28a745; /* Green hover border for select */
+            border-color: #28a745;
+            /* Green hover border for select */
         }
 
         button {
-            background-color: #28a745; /* Green button */
+            background-color: #28a745;
+            /* Green button */
             color: white;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -104,7 +114,8 @@
         }
 
         button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #218838;
+            /* Darker green on hover */
         }
 
         footer {
@@ -138,7 +149,8 @@
             margin: 2rem 0;
             padding: 1rem;
             background-color: #f0f0f0;
-            border: 1px dashed #28a745; /* Green dashed border */
+            border: 1px dashed #28a745;
+            /* Green dashed border */
             border-radius: 8px;
             text-align: center;
         }
@@ -153,7 +165,8 @@
         .guide-section {
             margin-top: 3rem;
             padding: 2rem;
-            background-color: #d4edda; /* Light green background for guide */
+            background-color: #d4edda;
+            /* Light green background for guide */
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -190,15 +203,22 @@
             width: 40px;
             height: 40px;
             animation: spin 2s linear infinite;
-            display: none; /* Initially hidden */
-            margin: 20px auto 0; /* Center the spinner with margin */
+            display: none;
+            /* Initially hidden */
+            margin: 20px auto 0;
+            /* Center the spinner with margin */
             position: relative;
             top: 20px;
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Styling the form */
@@ -220,11 +240,14 @@
                 margin: 1rem;
             }
 
-            button, .back-home-btn {
+            button,
+            .back-home-btn {
                 font-size: 0.9rem;
             }
 
-            input[type="file"], button, .back-home-btn {
+            input[type="file"],
+            button,
+            .back-home-btn {
                 padding: 0.5rem;
             }
 
@@ -232,11 +255,11 @@
                 width: 80px;
             }
         }
-
     </style>
 </head>
+
 <body>
-            <header class="bg-gray-900 text-white py-4">
+    <header class="bg-gray-900 text-white py-4">
         <div class="container mx-auto flex flex-wrap items-center justify-between px-4">
             <!-- Logo and Tagline -->
             <div class="flex items-center">
@@ -248,22 +271,23 @@
                     <!-- <p class="text-sm">Your privacy is important to us. We do not store or share your files.</p> -->
                 </div>
             </div>
-
             <!-- Navigation -->
             <nav class="w-full md:w-auto">
                 <div class="flex items-center justify-between">
                     <div class="hidden md:flex space-x-4">
                         <a href="/" class="bg-blue-700 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <a href="#about"
-                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">AboutUs</a>
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About
+                            Us</a>
                         <a href="#tutorials"
                             class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tutorials</a>
                         <a href="/contact"
-                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">ContactUs</a>
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact
+                            Us</a>
                     </div>
                     <div class="md:hidden">
-                        <button type="button" class="text-gray-200 hover:text-white focus:outline-none"
-                            aria-label="Open main menu">
+                        <button id="mobile-menu-button" type="button"
+                            class="text-gray-200 hover:text-white focus:outline-none" aria-label="Open main menu">
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -272,10 +296,26 @@
                         </button>
                     </div>
                 </div>
+                <!-- Mobile menu, hidden by default -->
+                <div id="mobile-menu" class="hidden md:hidden mt-2">
+                    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        <a href="/"
+                            class="bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                        <a href="#about"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About
+                            Us</a>
+                        <a href="#tutorials"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Tutorials</a>
+                        <a href="/contact"
+                            class="text-gray-200 hover:bg-blue-500 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact
+                            Us</a>
+                    </div>
+                </div>
             </nav>
         </div>
-            <h1>Image Converter</h1>
+        <h1>Image Converter</h1>
     </header>
+
     <main>
         <h2>Convert Your Image</h2>
 
@@ -307,28 +347,31 @@
                 <img src="static/images/choose_img_file.png" alt="Step 1 Image">
                 <div class="step-text">
                     <h4>Step 1: Upload Your Image</h4>
-                    <p>Select the image file you wish to convert by clicking the "Upload Image" button above. Supported file formats include JPG, PNG, GIF, BMP, and SVG.</p>
+                    <p>Select the image file you wish to convert by clicking the "Upload Image" button above. Supported
+                        file formats include JPG, PNG, GIF, BMP, and SVG.</p>
                 </div>
             </div>
             <div class="step">
                 <img src="static/images/choose_img_format.png" alt="Step 2 Image">
                 <div class="step-text">
                     <h4>Step 2: Choose the Desired Format</h4>
-                    <p>From the dropdown menu, select the format you want to convert your image to, such as JPEG, PNG, GIF, BMP, or SVG.</p>
+                    <p>From the dropdown menu, select the format you want to convert your image to, such as JPEG, PNG,
+                        GIF, BMP, or SVG.</p>
                 </div>
             </div>
             <div class="step">
                 <img src="static/images/convert_img.png" alt="Step 3 Image">
                 <div class="step-text">
                     <h4>Step 3: Click Convert</h4>
-                    <p>Click the "Convert" button to start the conversion process. Once completed, you can download the converted image.</p>
+                    <p>Click the "Convert" button to start the conversion process. Once completed, you can download the
+                        converted image.</p>
                 </div>
             </div>
         </div>
 
         <a href="/" class="back-home-btn">Back to Home</a>
     </main>
-            <footer class="bg-gray-900 text-gray-300 py-12">
+    <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                 <div class="col-span-1 md:col-span-2 lg:col-span-1">
@@ -393,17 +436,6 @@
                                 Conditions</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-semibold text-lg mb-4">Newsletter</h4>
-                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest features and releases.</p>
-                    <form class="flex">
-                        <input type="email" placeholder="Enter your email"
-                            class="bg-gray-800 text-white px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex-grow"
-                            required>
-                        <button type="submit"
-                            class="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 transition-colors duration-300">Subscribe</button>
-                    </form>
-                </div>
             </div>
             <div class="border-t border-gray-700 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
@@ -426,50 +458,60 @@
 
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+
         const uploadForm = document.getElementById('conversion-form'); // Match the form's ID
         const loader = document.getElementById('loader');  // The loader element
-    
-        uploadForm.addEventListener('submit', function(event) {
+
+        uploadForm.addEventListener('submit', function (event) {
             event.preventDefault();  // Prevent default form submission
             loader.style.display = 'block';  // Show the loader
-    
+
             const formData = new FormData(uploadForm);
             const fileInput = document.getElementById('file');  // Get the file input element
             const fileName = fileInput.files[0].name.split('.')[0];  // Get the base file name (without extension)
             const targetFormat = document.getElementById('format').value;  // Get the target format from the form
 
-    
+
             // Send the form data using AJAX
             fetch(uploadForm.action, {
                 method: 'POST',
                 body: formData
             }).then(response => response.blob())
-              .then(data => {
-                loader.style.display = 'none';  // Hide the loader once the file is converted
-    
-                // Create a Blob from the response data
-                const blob = new Blob([data]);
-    
-                // Create a dynamic download link
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-    
-                // Use the original file name and append the target format
-                const downloadFileName = `${fileName}.${targetFormat}`;
-                link.download = downloadFileName;
-    
-                // Append the link to the document, trigger click to download, then remove the link
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-    
-                // Clean up the object URL
-                URL.revokeObjectURL(link.href);
-              }).catch(error => {
-                loader.style.display = 'none';  // Hide the loader on error
-                alert('There was an error processing the file');
-              });
+                .then(data => {
+                    loader.style.display = 'none';  // Hide the loader once the file is converted
+
+                    // Create a Blob from the response data
+                    const blob = new Blob([data]);
+
+                    // Create a dynamic download link
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+
+                    // Use the original file name and append the target format
+                    const downloadFileName = `${fileName}.${targetFormat}`;
+                    link.download = downloadFileName;
+
+                    // Append the link to the document, trigger click to download, then remove the link
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    // Clean up the object URL
+                    URL.revokeObjectURL(link.href);
+                }).catch(error => {
+                    loader.style.display = 'none';  // Hide the loader on error
+                    alert('There was an error processing the file');
+                });
         });
     </script>
 </body>
+
 </html>
