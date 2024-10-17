@@ -1232,6 +1232,30 @@ def terms_and_conditions():
 def about_us():
     return render_template('about_us.html')
 
+@app.route('/help_center', methods=['GET'])
+def help_center():
+    return render_template('help_center.html')
+
+@app.route('/faq', methods=['GET'])
+def faq():
+    return render_template('faq.html')
+
+@app.route('/privacy_policy', methods=['GET'])
+def privacy_policy():
+    return render_template('privacy_policy.html')
+
+@app.route('/cookie_policy', methods=['GET'])
+def cookie_policy():
+    return render_template('cookie_policy.html')
+
+@app.route('/services', methods=['GET'])
+def services():
+    return render_template('services.html')
+
+@app.route('/tutorials', methods=['GET'])
+def tutorials():
+    return render_template('tutorials.html')
+
 @app.route('/conversion-progress')
 def conversion_progress():
     """Return the conversion progress."""

@@ -340,8 +340,7 @@
     <main>
         <h2>Upload Your Video</h2>
 
-        <form id="conversion-form" action="{{ url_for('remove_audio') }}" method="POST" enctype="multipart/form-data"
-            onsubmit="return validateFileSize()">
+        <form id="conversionForm" action="{{ url_for('remove_audio') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateFileSize()">
             <div class="form-group">
                 <label for="file">Choose Video File (MP4, AVI, MOV, MKV, FLV):</label>
                 <input type="file" id="file" name="file" accept="video/*" required>
@@ -350,6 +349,7 @@
             <button type="submit">Remove Audio</button>
             <div class="loader" id="loader"></div>
         </form>
+        
 
         <!-- Guide Section -->
         <div class="guide-section" id="guide-section">
