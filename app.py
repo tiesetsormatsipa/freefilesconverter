@@ -137,13 +137,16 @@ def image_convert():
     if request.method == 'POST':
         file = request.files.get('file')
         if file and allowed_file(file.filename, ALLOWED_IMAGE_EXTENSIONS):
-            # Get the secure filename and save the file
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # Generate a new filename with the current date and time
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
 
             # Extract the file extension from the filename
-            original_format = os.path.splitext(filename)[1].replace('.', '')
+            original_format = os.path.splitext(new_filename)[1].replace('.', '')
             target_format = request.form.get('format')
             output_image_file = os.path.splitext(file_path)[0] + f'.{target_format}'
 
@@ -175,7 +178,7 @@ def image_convert():
                 conversion_status = 'successful'
 
                 # Log the file metadata and retrieve the file_id
-                file_id = log_img_file_metadata(filename, original_format, target_format, conversion_type, conversion_status)
+                file_id = log_img_file_metadata(new_filename, original_format, target_format, conversion_type, conversion_status)
 
                 # Log the successful conversion
                 log_img_conversion(conversion_type, original_file_size, converted_file_size, conversion_time, conversion_status, file_id)
@@ -191,7 +194,7 @@ def image_convert():
                 # Log the failed conversion with the existing file sizes and conversion time
                 if file_id is None:
                     # Log the metadata first to get the file_id if conversion failed
-                    file_id = log_img_file_metadata(filename, original_format, target_format, conversion_type, conversion_status)
+                    file_id = log_img_file_metadata(new_filename, original_format, target_format, conversion_type, conversion_status)
 
                 # Log the failed conversion
                 log_img_conversion(conversion_type, original_file_size, converted_file_size, conversion_time, conversion_status, file_id)
@@ -235,13 +238,17 @@ def audio_convert():
     if request.method == 'POST':
         file = request.files.get('file')
         if file and allowed_file(file.filename, ALLOWED_AUDIO_EXTENSIONS):
-            # Get the secure filename and save the file
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # Generate a new filename with the current date and time
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            # Save the file with the new name
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
 
             # Extract the file extension from the filename
-            original_format = os.path.splitext(filename)[1].replace('.', '')
+            original_format = os.path.splitext(new_filename)[1].replace('.', '')
             target_format = request.form.get('format')
             output_audio_file = os.path.splitext(file_path)[0] + f'.{target_format}'
 
@@ -273,7 +280,7 @@ def audio_convert():
                 conversion_status = 'successful'
 
                 # Log the file metadata and retrieve the file_id
-                file_id = log_audio_file_metadata(filename, original_format, target_format, conversion_status, conversion_type)
+                file_id = log_audio_file_metadata(new_filename, original_format, target_format, conversion_status, conversion_type)
 
                 # Log the successful conversion
                 log_audio_conversion(file_id, original_file_size, converted_file_size, conversion_time, conversion_status, conversion_type)
@@ -289,7 +296,7 @@ def audio_convert():
                 # Log the failed conversion with the existing file sizes and conversion time
                 if file_id is None:
                     # Log the metadata first to get the file_id if conversion failed
-                    file_id = log_audio_file_metadata(filename, original_format, target_format, conversion_status, conversion_type)
+                    file_id = log_audio_file_metadata(new_filename, original_format, target_format, conversion_status, conversion_type)
 
                 # Log the failed conversion
                 log_audio_conversion(file_id, original_file_size, converted_file_size, conversion_time, conversion_status, conversion_type)
@@ -338,8 +345,12 @@ def video_convert():
         file = request.files['file']
 
         if file and allowed_file(file.filename, ALLOWED_VIDEO_EXTENSIONS):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # Generate a new filename with the current date and time
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
 
             # Check file size
@@ -369,7 +380,7 @@ def video_convert():
                 converted_file_size = os.path.getsize(output_file)
 
                 # Log conversion details to the database
-                file_id = log_vid_file_metadata(filename, file.content_type, target_format, conversion_status, conversion_type)
+                file_id = log_vid_file_metadata(new_filename, file.content_type, target_format, conversion_status, conversion_type)
                 log_vid_conversion(file_id, original_file_size, converted_file_size, conversion_time, conversion_status, conversion_type)
 
                 return send_file(output_file, as_attachment=True)
@@ -423,8 +434,12 @@ def video_to_audio():
         file = request.files['file']
         
         if file and allowed_file(file.filename, ALLOWED_VIDEO_EXTENSIONS):
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # Generate a new filename with the current date and time
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
             
             selected_format = request.form['format']  # Get the selected format
@@ -465,7 +480,7 @@ def video_to_audio():
                 conversion_status = 'successful'  
 
                 # Log the audio file metadata and retrieve the file_id
-                file_id = log_vid_to_aud_file_metadata(filename, file.content_type, selected_format, conversion_status)
+                file_id = log_vid_to_aud_file_metadata(new_filename, file.content_type, selected_format, conversion_status)
 
                 if file_id:
                     # Log the successful conversion
@@ -482,7 +497,7 @@ def video_to_audio():
                 # Log the failed conversion with the existing file sizes and conversion time
                 if file_id is None:
                     # Log the metadata first to get the file_id if conversion failed
-                    file_id = log_vid_to_aud_file_metadata(filename, file.content_type, selected_format, conversion_status)
+                    file_id = log_vid_to_aud_file_metadata(new_filename, file.content_type, selected_format, conversion_status)
 
                 log_vid_to_aud_conversion(file_id, original_file_size, converted_file_size, conversion_time, conversion_status)
 
@@ -536,8 +551,11 @@ def remove_audio():
                 flash('File size must be less than 100MB.')
                 return redirect(request.url)
 
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
 
             output_file = os.path.splitext(file_path)[0] + '_no_audio.mp4'
@@ -569,7 +587,7 @@ def remove_audio():
                 converted_file_size = os.path.getsize(output_file)
 
                 # Log conversion details to the database
-                file_id = log_mute_vid_file_metadata(filename, file.content_type, 'mp4', conversion_status, conversion_type)
+                file_id = log_mute_vid_file_metadata(new_filename, file.content_type, 'mp4', conversion_status, conversion_type)
                 log_mute_vid_conversion(file_id, original_file_size, converted_file_size, conversion_time, conversion_status, conversion_type)
 
                 # Send the file for download
@@ -1044,13 +1062,16 @@ def document_convert():
     if request.method == 'POST':
         file = request.files.get('file')
         if file and allowed_file(file.filename, ALLOWED_DOCUMENT_EXTENSIONS):
-            # Get the secure filename and save the file
-            filename = secure_filename(file.filename)
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # Generate a new filename with the current date and time
+            timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+            original_filename = secure_filename(file.filename)
+            new_filename = f"{timestamp}_{original_filename}"
+
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
             file.save(file_path)
 
             # Extract the file extension from the filename
-            original_format = os.path.splitext(filename)[1].replace('.', '')
+            original_format = os.path.splitext(new_filename)[1].replace('.', '')
             target_format = request.form.get('format')
             output_document_file = os.path.splitext(file_path)[0] + f'.{target_format}'
 
@@ -1066,24 +1087,24 @@ def document_convert():
                 start_time = time.time()
 
                 # Process document conversion (replace with your document conversion logic)
-                if filename.lower().endswith('.pdf'):
+                if new_filename.lower().endswith('.pdf'):
                     print("Handling PDF conversion...")
-                    output_document_file = handle_pdf_conversion(file_path, filename, target_format)
-                elif filename.lower().endswith('.docx'):
+                    output_document_file = handle_pdf_conversion(file_path, new_filename, target_format)
+                elif new_filename.lower().endswith('.docx'):
                     print("Handling DOCX conversion...")
-                    output_document_file = handle_docx_conversion(file_path, filename, target_format)
-                elif filename.lower().endswith('.txt'):
+                    output_document_file = handle_docx_conversion(file_path, new_filename, target_format)
+                elif new_filename.lower().endswith('.txt'):
                     print("Handling TXT conversion...")
                     output_document_file = handle_txt_conversion(file_path, target_format)
-                elif filename.lower().endswith('.xlsx'):
+                elif new_filename.lower().endswith('.xlsx'):
                     print("Handling Excel conversion...")
-                    output_document_file = handle_excel_conversion(file_path, filename, target_format)
-                elif filename.lower().endswith('.csv'):
+                    output_document_file = handle_excel_conversion(file_path, new_filename, target_format)
+                elif new_filename.lower().endswith('.csv'):
                     print("Handling CSV conversion...")
-                    output_document_file = handle_csv_conversion(file_path, filename, target_format)
+                    output_document_file = handle_csv_conversion(file_path, new_filename, target_format)
                 else:
                     flash('Unsupported file type!', 'error')
-                    print(f'Unsupported file type: {filename}')
+                    print(f'Unsupported file type: {new_filename}')
                     return redirect(request.url)
 
                 # End measuring conversion time
@@ -1097,13 +1118,13 @@ def document_convert():
                 conversion_status = 'successful'
 
                 # Log the file metadata
-                log_doc_file_metadata(filename, original_format, target_format, conversion_type)
+                log_doc_file_metadata(new_filename, original_format, target_format, conversion_type)
 
                 # Log the successful conversion
                 log_doc_conversion(conversion_type, original_file_size, converted_file_size, conversion_time, conversion_status)
 
                 # Send the converted file back to the user
-                return send_file(output_document_file, as_attachment=True, download_name=f'{filename}.{target_format}')
+                return send_file(output_document_file, as_attachment=True, download_name=f'{new_filename}.{target_format}')
 
             except Exception as e:
                 # Handle conversion errors
